@@ -1,10 +1,10 @@
 const { Model, DataTypes } = require('sequelize');
 
-const sequelize = require('***');
+const sequelize = require('./config/connection');
 
-class location extends Model {}
+class Location extends Model {}
 
-location.init(
+Location.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -22,8 +22,8 @@ location.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'location',
+        modelName: 'Location',
       }
 );
 
-module.exports = location
+module.exports = Location
