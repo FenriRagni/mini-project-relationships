@@ -1,20 +1,20 @@
-const location = require('./location');
-const traveler = require('./traveler');
-const trips = require('./trips');
+const Location = require('./Location');
+const Traveler = require('./Traveler');
+const Trips = require('./Trips');
 
 
-traveler.hasMany(location, {
+Traveler.hasMany(Location, {
   foreignKey: 'id',
 });
 
-location.hasMany(traveler, {
-  through: trips,
+Location.hasMany(Traveler, {
+  through: Trips,
   foreignKey: 'id'
 })
 
 
 module.exports = {
-    location,
-    traveler,
-    trips,
+    Location,
+    Traveler,
+    Trips,
   };
