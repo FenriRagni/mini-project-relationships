@@ -1,10 +1,10 @@
 const { Model, DataTypes } = require('sequelize');
 
-const sequelize = require('./config/connection');
+const sequelize = require('../config/connection');
 
 class Traveler extends Model {}
 
-Travelerraveler.init(
+Traveler.init(
     {
         id: {
             type: DataTypes.INTEGER,
