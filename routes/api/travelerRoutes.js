@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const sequelize = require('../../config/connection');
 const { Traveler, Location, Trips } = require('../../models');
 
 router.get('/', async (req, res) => {
@@ -22,7 +21,9 @@ router.post('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try{
-        const travelerData = await Traveler.findByPK(req.params.id);
+        const travelerData = await Traveler.findByPK(req.params.id, {
+            include: [{ model: Trips } , { model: Location }]
+        });
         if(!travelerData){
             res.status(404).json({ message: 'No traveler found with that id!'})
             return;
